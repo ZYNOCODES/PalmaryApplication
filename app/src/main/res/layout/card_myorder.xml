@@ -37,7 +37,7 @@
                 android:id="@+id/TitleOutPut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fruit salad mix"
+                android:text="Kool break"
                 android:textSize="16sp"
                 android:textColor="@color/SecondTextColor"
                 android:fontFamily="@font/poppins_medium" />
@@ -104,7 +104,7 @@
                     android:id="@+id/ModificationOutPut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sans salade"
+                    android:text="Sans Embalage"
                     android:textSize="10sp"
                     android:textColor="@color/Gray"
                     android:fontFamily="@font/poppins_regular"

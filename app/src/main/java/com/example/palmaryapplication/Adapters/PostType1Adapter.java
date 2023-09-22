@@ -71,7 +71,7 @@ public class PostType1Adapter extends RecyclerView.Adapter<PostType1ViewHolder> 
                         .child("Cart");
                 RefCart = RefCart.push();
                 String idd = RefCart.getKey();
-                Cart cart = new Cart(idd,Posts.get(position),"1","");
+                Cart cart = new Cart(idd,Posts.get(position),"1");
                 RefCart.setValue(cart)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

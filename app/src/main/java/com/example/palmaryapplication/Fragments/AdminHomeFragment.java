@@ -35,8 +35,8 @@ public class AdminHomeFragment extends Fragment {
     private AdminPostType2Adapter adminpostType2Adapter;
     private AdminAnnonceAdapter adminAnnonceAdapter;
     private DatabaseReference RefProduct;
-    private MaterialCardView DrinksBTN,SandwichBTN,PizzaBTN,BurgerBTN;
-    private TextView DrinksTitle,SandwichTitle,PizzaTitle,BurgerTitle;
+    private MaterialCardView MaxonBTN,MomentBTN,KoolBTN,RegaloBTN;
+    private TextView MaxonTitle,MomentTitle,KoolTitle,RegaloTitle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,24 +62,24 @@ public class AdminHomeFragment extends Fragment {
         AnnonceRecyclerView = view.findViewById(R.id.AnnonceRecyclerView);
         ProductRecyclerView = view.findViewById(R.id.ProductRecyclerView);
         AllProductRecyclerView = view.findViewById(R.id.AllProductRecyclerView);
-        DrinksBTN = view.findViewById(R.id.DrinksBTN);
-        SandwichBTN = view.findViewById(R.id.SandwichBTN);
-        PizzaBTN = view.findViewById(R.id.PizzaBTN);
-        BurgerBTN = view.findViewById(R.id.BurgerBTN);
-        DrinksTitle = view.findViewById(R.id.DrinksTitle);
-        SandwichTitle = view.findViewById(R.id.SandwichTitle);
-        PizzaTitle = view.findViewById(R.id.PizzaTitle);
-        BurgerTitle = view.findViewById(R.id.BurgerTitle);
+        MaxonBTN = view.findViewById(R.id.MaxonBTN);
+        MomentBTN = view.findViewById(R.id.MomentBTN);
+        KoolBTN = view.findViewById(R.id.KoolBTN);
+        RegaloBTN = view.findViewById(R.id.RegaloBTN);
+        MaxonTitle = view.findViewById(R.id.MaxonTitle);
+        MomentTitle = view.findViewById(R.id.MomentTitle);
+        KoolTitle = view.findViewById(R.id.KoolTitle);
+        RegaloTitle = view.findViewById(R.id.RegaloTitle);
         RefProduct = FirebaseDatabase.getInstance(getContext().getString(R.string.DBURL))
                 .getReference().child("Products");
     }
     private void fetchDataFromDB(){
         ArrayList<Product> products = new ArrayList<>();
         ArrayList<Product> AnnonceProducts = new ArrayList<>();
-        ArrayList<Product> BurgerProducts = new ArrayList<>();
-        ArrayList<Product> PizzaProducts = new ArrayList<>();
-        ArrayList<Product> SandwichProducts = new ArrayList<>();
-        ArrayList<Product> DrinksProducts = new ArrayList<>();
+        ArrayList<Product> RegaloProducts = new ArrayList<>();
+        ArrayList<Product> KoolProducts = new ArrayList<>();
+        ArrayList<Product> MomentProducts = new ArrayList<>();
+        ArrayList<Product> MaxonProducts = new ArrayList<>();
 
         RefProduct.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,21 +91,21 @@ public class AdminHomeFragment extends Fragment {
                         // If the condition is true, add the product to the filtered list
                         AnnonceProducts.add(product);
                     }
-                    if (product != null && (product.getCategory().equals("Burger") || product.getCategory().equals("burger"))) {
+                    if (product != null && (product.getCategory().equals("Regalo") || product.getCategory().equals("regalo"))) {
                         // If the condition is true, add the product to the filtered list
-                        BurgerProducts.add(product);
+                        RegaloProducts.add(product);
                     }
-                    if (product != null && (product.getCategory().equals("Pizza") || product.getCategory().equals("pizza"))) {
+                    if (product != null && (product.getCategory().equals("Kool") || product.getCategory().equals("kool"))) {
                         // If the condition is true, add the product to the filtered list
-                        PizzaProducts.add(product);
+                        KoolProducts.add(product);
                     }
-                    if (product != null && (product.getCategory().equals("Sandwich") || product.getCategory().equals("sandwich"))) {
+                    if (product != null && (product.getCategory().equals("Moment") || product.getCategory().equals("moment"))) {
                         // If the condition is true, add the product to the filtered list
-                        SandwichProducts.add(product);
+                        MomentProducts.add(product);
                     }
-                    if (product != null && (product.getCategory().equals("Drink") || product.getCategory().equals("drink"))) {
+                    if (product != null && (product.getCategory().equals("Maxon") || product.getCategory().equals("maxon"))) {
                         // If the condition is true, add the product to the filtered list
-                        DrinksProducts.add(product);
+                        MaxonProducts.add(product);
                     }
                     products.add(product);
                 }
@@ -117,138 +117,138 @@ public class AdminHomeFragment extends Fragment {
                     int primaryColor = ContextCompat.getColor(getActivity(), R.color.PrimaryColor);
                     int whiteColor = ContextCompat.getColor(getActivity(), R.color.white);
                     int primaryTextColor = ContextCompat.getColor(getActivity(), R.color.PrimaryTextColor);
-                    if (BurgerProducts.isEmpty()){
-                        BurgerBTN.setVisibility(View.GONE);
+                    if (RegaloProducts.isEmpty()){
+                        RegaloBTN.setVisibility(View.GONE);
                     }else{
-                        BurgerBTN.setVisibility(View.VISIBLE);
-                        BurgerBTN.setOnClickListener(new View.OnClickListener() {
+                        RegaloBTN.setVisibility(View.VISIBLE);
+                        RegaloBTN.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 // show the content by category
-                                BurgerBTN.setCardBackgroundColor(primaryColor);
-                                BurgerTitle.setTextColor(whiteColor);
-                                PizzaBTN.setCardBackgroundColor(whiteColor);
-                                PizzaTitle.setTextColor(primaryTextColor);
-                                SandwichBTN.setCardBackgroundColor(whiteColor);
-                                SandwichTitle.setTextColor(primaryTextColor);
-                                DrinksBTN.setCardBackgroundColor(whiteColor);
-                                DrinksTitle.setTextColor(primaryTextColor);
+                                RegaloBTN.setCardBackgroundColor(primaryColor);
+                                RegaloTitle.setTextColor(whiteColor);
+                                KoolBTN.setCardBackgroundColor(whiteColor);
+                                KoolTitle.setTextColor(primaryTextColor);
+                                MomentBTN.setCardBackgroundColor(whiteColor);
+                                MomentTitle.setTextColor(primaryTextColor);
+                                MaxonBTN.setCardBackgroundColor(whiteColor);
+                                MaxonTitle.setTextColor(primaryTextColor);
 
-                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),BurgerProducts);
+                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),RegaloProducts);
                                 ProductRecyclerView.setAdapter(adminpostType1Adapter);
                             }
                         });
                     }
-                    if (PizzaProducts.isEmpty()){
-                        PizzaBTN.setVisibility(View.GONE);
+                    if (KoolProducts.isEmpty()){
+                        KoolBTN.setVisibility(View.GONE);
                     }else{
-                        PizzaBTN.setVisibility(View.VISIBLE);
-                        PizzaBTN.setOnClickListener(new View.OnClickListener() {
+                        KoolBTN.setVisibility(View.VISIBLE);
+                        KoolBTN.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 // show the content by category
-                                PizzaBTN.setCardBackgroundColor(primaryColor);
-                                PizzaTitle.setTextColor(whiteColor);
-                                BurgerBTN.setCardBackgroundColor(whiteColor);
-                                BurgerTitle.setTextColor(primaryTextColor);
-                                SandwichBTN.setCardBackgroundColor(whiteColor);
-                                SandwichTitle.setTextColor(primaryTextColor);
-                                DrinksBTN.setCardBackgroundColor(whiteColor);
-                                DrinksTitle.setTextColor(primaryTextColor);
+                                KoolBTN.setCardBackgroundColor(primaryColor);
+                                KoolTitle.setTextColor(whiteColor);
+                                RegaloBTN.setCardBackgroundColor(whiteColor);
+                                RegaloTitle.setTextColor(primaryTextColor);
+                                MomentBTN.setCardBackgroundColor(whiteColor);
+                                MomentTitle.setTextColor(primaryTextColor);
+                                MaxonBTN.setCardBackgroundColor(whiteColor);
+                                MaxonTitle.setTextColor(primaryTextColor);
 
-                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),PizzaProducts);
+                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),KoolProducts);
                                 ProductRecyclerView.setAdapter(adminpostType1Adapter);
                             }
                         });
                     }
-                    if (SandwichProducts.isEmpty()){
-                        SandwichBTN.setVisibility(View.GONE);
+                    if (MomentProducts.isEmpty()){
+                        MomentBTN.setVisibility(View.GONE);
                     }else{
-                        SandwichBTN.setVisibility(View.VISIBLE);
-                        SandwichBTN.setOnClickListener(new View.OnClickListener() {
+                        MomentBTN.setVisibility(View.VISIBLE);
+                        MomentBTN.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 // show the content by category
-                                SandwichBTN.setCardBackgroundColor(primaryColor);
-                                SandwichTitle.setTextColor(whiteColor);
-                                PizzaBTN.setCardBackgroundColor(whiteColor);
-                                PizzaTitle.setTextColor(primaryTextColor);
-                                BurgerBTN.setCardBackgroundColor(whiteColor);
-                                BurgerTitle.setTextColor(primaryTextColor);
-                                DrinksBTN.setCardBackgroundColor(whiteColor);
-                                DrinksTitle.setTextColor(primaryTextColor);
+                                MomentBTN.setCardBackgroundColor(primaryColor);
+                                MomentTitle.setTextColor(whiteColor);
+                                KoolBTN.setCardBackgroundColor(whiteColor);
+                                KoolTitle.setTextColor(primaryTextColor);
+                                RegaloBTN.setCardBackgroundColor(whiteColor);
+                                RegaloTitle.setTextColor(primaryTextColor);
+                                MaxonBTN.setCardBackgroundColor(whiteColor);
+                                MaxonTitle.setTextColor(primaryTextColor);
 
-                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),SandwichProducts);
+                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),MomentProducts);
                                 ProductRecyclerView.setAdapter(adminpostType1Adapter);
                             }
                         });
                     }
-                    if (DrinksProducts.isEmpty()){
-                        DrinksBTN.setVisibility(View.GONE);
+                    if (MaxonProducts.isEmpty()){
+                        MaxonBTN.setVisibility(View.GONE);
                     }else {
-                        DrinksBTN.setVisibility(View.VISIBLE);
-                        DrinksBTN.setOnClickListener(new View.OnClickListener() {
+                        MaxonBTN.setVisibility(View.VISIBLE);
+                        MaxonBTN.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                DrinksBTN.setCardBackgroundColor(primaryColor);
-                                DrinksTitle.setTextColor(whiteColor);
-                                PizzaBTN.setCardBackgroundColor(whiteColor);
-                                PizzaTitle.setTextColor(primaryTextColor);
-                                SandwichBTN.setCardBackgroundColor(whiteColor);
-                                SandwichTitle.setTextColor(primaryTextColor);
-                                BurgerBTN.setCardBackgroundColor(whiteColor);
-                                BurgerTitle.setTextColor(primaryTextColor);
+                                MaxonBTN.setCardBackgroundColor(primaryColor);
+                                MaxonTitle.setTextColor(whiteColor);
+                                KoolBTN.setCardBackgroundColor(whiteColor);
+                                KoolTitle.setTextColor(primaryTextColor);
+                                MomentBTN.setCardBackgroundColor(whiteColor);
+                                MomentTitle.setTextColor(primaryTextColor);
+                                RegaloBTN.setCardBackgroundColor(whiteColor);
+                                RegaloTitle.setTextColor(primaryTextColor);
 
-                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),DrinksProducts);
+                                adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),MaxonProducts);
                                 ProductRecyclerView.setAdapter(adminpostType1Adapter);
                             }
                         });
                     }
-                    if (!BurgerProducts.isEmpty()){
-                        BurgerBTN.setCardBackgroundColor(primaryColor);
-                        BurgerTitle.setTextColor(whiteColor);
-                        PizzaBTN.setCardBackgroundColor(whiteColor);
-                        PizzaTitle.setTextColor(primaryTextColor);
-                        SandwichBTN.setCardBackgroundColor(whiteColor);
-                        SandwichTitle.setTextColor(primaryTextColor);
-                        DrinksBTN.setCardBackgroundColor(whiteColor);
-                        DrinksTitle.setTextColor(primaryTextColor);
+                    if (!RegaloProducts.isEmpty()){
+                        RegaloBTN.setCardBackgroundColor(primaryColor);
+                        RegaloTitle.setTextColor(whiteColor);
+                        KoolBTN.setCardBackgroundColor(whiteColor);
+                        KoolTitle.setTextColor(primaryTextColor);
+                        MomentBTN.setCardBackgroundColor(whiteColor);
+                        MomentTitle.setTextColor(primaryTextColor);
+                        MaxonBTN.setCardBackgroundColor(whiteColor);
+                        MaxonTitle.setTextColor(primaryTextColor);
 
-                        adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),BurgerProducts);
+                        adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),RegaloProducts);
                         ProductRecyclerView.setAdapter(adminpostType1Adapter);
-                    }else if (!PizzaProducts.isEmpty()){
-                        PizzaBTN.setCardBackgroundColor(primaryColor);
-                        PizzaTitle.setTextColor(whiteColor);
-                        BurgerBTN.setCardBackgroundColor(whiteColor);
-                        BurgerTitle.setTextColor(primaryTextColor);
-                        SandwichBTN.setCardBackgroundColor(whiteColor);
-                        SandwichTitle.setTextColor(primaryTextColor);
-                        DrinksBTN.setCardBackgroundColor(whiteColor);
-                        DrinksTitle.setTextColor(primaryTextColor);
+                    }else if (!KoolProducts.isEmpty()){
+                        KoolBTN.setCardBackgroundColor(primaryColor);
+                        KoolTitle.setTextColor(whiteColor);
+                        RegaloBTN.setCardBackgroundColor(whiteColor);
+                        RegaloTitle.setTextColor(primaryTextColor);
+                        MomentBTN.setCardBackgroundColor(whiteColor);
+                        MomentTitle.setTextColor(primaryTextColor);
+                        MaxonBTN.setCardBackgroundColor(whiteColor);
+                        MaxonTitle.setTextColor(primaryTextColor);
 
-                        adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),PizzaProducts);
+                        adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),KoolProducts);
                         ProductRecyclerView.setAdapter(adminpostType1Adapter);
-                    }else if (!SandwichProducts.isEmpty()){
-                        SandwichBTN.setCardBackgroundColor(primaryColor);
-                        SandwichTitle.setTextColor(whiteColor);
-                        PizzaBTN.setCardBackgroundColor(whiteColor);
-                        PizzaTitle.setTextColor(primaryTextColor);
-                        BurgerBTN.setCardBackgroundColor(whiteColor);
-                        BurgerTitle.setTextColor(primaryTextColor);
-                        DrinksBTN.setCardBackgroundColor(whiteColor);
-                        DrinksTitle.setTextColor(primaryTextColor);
+                    }else if (!MomentProducts.isEmpty()){
+                        MomentBTN.setCardBackgroundColor(primaryColor);
+                        MomentTitle.setTextColor(whiteColor);
+                        KoolBTN.setCardBackgroundColor(whiteColor);
+                        KoolTitle.setTextColor(primaryTextColor);
+                        RegaloBTN.setCardBackgroundColor(whiteColor);
+                        RegaloTitle.setTextColor(primaryTextColor);
+                        MaxonBTN.setCardBackgroundColor(whiteColor);
+                        MaxonTitle.setTextColor(primaryTextColor);
 
-                        adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),SandwichProducts);
+                        adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),MomentProducts);
                         ProductRecyclerView.setAdapter(adminpostType1Adapter);
-                    }else if (!DrinksProducts.isEmpty()){
-                        DrinksBTN.setCardBackgroundColor(primaryColor);
-                        DrinksTitle.setTextColor(whiteColor);
-                        PizzaBTN.setCardBackgroundColor(whiteColor);
-                        PizzaTitle.setTextColor(primaryTextColor);
-                        SandwichBTN.setCardBackgroundColor(whiteColor);
-                        SandwichTitle.setTextColor(primaryTextColor);
-                        BurgerBTN.setCardBackgroundColor(whiteColor);
-                        BurgerTitle.setTextColor(primaryTextColor);
+                    }else if (!MaxonProducts.isEmpty()){
+                        MaxonBTN.setCardBackgroundColor(primaryColor);
+                        MaxonTitle.setTextColor(whiteColor);
+                        KoolBTN.setCardBackgroundColor(whiteColor);
+                        KoolTitle.setTextColor(primaryTextColor);
+                        MomentBTN.setCardBackgroundColor(whiteColor);
+                        MomentTitle.setTextColor(primaryTextColor);
+                        RegaloBTN.setCardBackgroundColor(whiteColor);
+                        RegaloTitle.setTextColor(primaryTextColor);
 
                         adminpostType1Adapter = new AdminPostType1Adapter(getActivity(),products);
                         ProductRecyclerView.setAdapter(adminpostType1Adapter);

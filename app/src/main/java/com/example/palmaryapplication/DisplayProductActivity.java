@@ -30,8 +30,8 @@ import com.squareup.picasso.Picasso;
 public class DisplayProductActivity extends AppCompatActivity {
     private CardView PlusBTN,LessBTN;
     private MaterialCardView AddToCartBTN;
-    private EditText ModificationInPut;
-    private TextView AboutOutPut,TitleOutPut,PriceOutPut,QuantityOutPut;
+    private EditText ModificationInPut,QuantityOutPut;
+    private TextView AboutOutPut,TitleOutPut,PriceOutPut;
     private ImageView IMGOutPut,BackBTN;
     private String ProductID;
     private DatabaseReference RefProduct,RefCart;
@@ -82,7 +82,7 @@ public class DisplayProductActivity extends AppCompatActivity {
                                 .child("Cart");
                         RefCart = RefCart.push();
                         String idd = RefCart.getKey();
-                        Cart cart = new Cart(idd,product,QuantityOutPut.getText().toString(),ModificationInPut.getText().toString());
+                        Cart cart = new Cart(idd,product,QuantityOutPut.getText().toString());
                         RefCart.setValue(cart)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -112,7 +112,7 @@ public class DisplayProductActivity extends AppCompatActivity {
         PlusBTN = findViewById(R.id.PlusBTN);
         LessBTN = findViewById(R.id.LessBTN);
         QuantityOutPut = findViewById(R.id.QuantityOutPut);
-        ModificationInPut = findViewById(R.id.ModificationInPut);
+
         AboutOutPut = findViewById(R.id.AboutOutPut);
         TitleOutPut = findViewById(R.id.TitleOutPut);
         PriceOutPut = findViewById(R.id.PriceOutPut);

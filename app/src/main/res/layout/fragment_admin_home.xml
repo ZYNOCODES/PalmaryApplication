@@ -87,7 +87,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginEnd="20dp"
-                        android:id="@+id/BurgerBTN">
+                        android:id="@+id/RegaloBTN">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -98,14 +98,94 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/burgerimg"
+                                android:src="@drawable/regalologo"
                                 android:scaleType="centerCrop"
                                 android:layout_gravity="center" />
                             <TextView
-                                android:id="@+id/BurgerTitle"
+                                android:id="@+id/RegaloTitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Burger"
+                                android:text="Regalo"
+                                android:textSize="16sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/PrimaryTextColor"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_weight="1"
+                                android:layout_marginStart="10dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="180dp"
+                        android:layout_height="50dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@color/PrimaryColor"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:id="@+id/KoolBTN">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="10dp">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/koollogo"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center" />
+                            <TextView
+                                android:id="@+id/KoolTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kool"
+                                android:textSize="16sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/PrimaryTextColor"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_weight="1"
+                                android:layout_marginStart="10dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="180dp"
+                        android:layout_height="50dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@color/PrimaryColor"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:id="@+id/MomentBTN">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="10dp">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/moment"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center" />
+                            <TextView
+                                android:id="@+id/MomentTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Moment"
                                 android:textSize="18sp"
                                 android:textAlignment="center"
                                 android:textColor="@color/PrimaryTextColor"
@@ -127,7 +207,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginEnd="20dp"
-                        android:id="@+id/PizzaBTN">
+                        android:id="@+id/MaxonBTN">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -138,94 +218,14 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/pizzaimg"
-                                android:scaleType="centerCrop"
-                                android:layout_gravity="center" />
-                            <TextView
-                                android:id="@+id/PizzaTitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pizza"
-                                android:textSize="18sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/PrimaryTextColor"
-                                android:fontFamily="@font/poppins_medium"
-                                android:layout_weight="1"
-                                android:layout_marginStart="10dp"
-                                android:layout_gravity="center"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="180dp"
-                        android:layout_height="50dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/PrimaryColor"
-                        app:cardCornerRadius="10dp"
-                        android:layout_marginStart="10sp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginEnd="20dp"
-                        android:id="@+id/SandwichBTN">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_margin="10dp">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/sandwich"
-                                android:scaleType="centerCrop"
-                                android:layout_gravity="center" />
-                            <TextView
-                                android:id="@+id/SandwichTitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sandwich"
-                                android:textSize="18sp"
-                                android:textAlignment="center"
-                                android:textColor="@color/PrimaryTextColor"
-                                android:fontFamily="@font/poppins_medium"
-                                android:layout_weight="1"
-                                android:layout_marginStart="10dp"
-                                android:layout_gravity="center"
-                                android:gravity="center"/>
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="180dp"
-                        android:layout_height="50dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/PrimaryColor"
-                        app:cardCornerRadius="10dp"
-                        android:layout_marginStart="10sp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginEnd="20dp"
-                        android:id="@+id/DrinksBTN">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_margin="10dp">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/drink"
+                                android:src="@drawable/maxon"
                                 android:scaleType="fitCenter"
                                 android:layout_gravity="center" />
                             <TextView
-                                android:id="@+id/DrinksTitle"
+                                android:id="@+id/MaxonTitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Drinks"
+                                android:text="Maxon"
                                 android:textSize="18sp"
                                 android:textAlignment="center"
                                 android:textColor="@color/PrimaryTextColor"
@@ -250,7 +250,7 @@
                 android:id="@id/line3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menu repas populaire"
+                android:text="Produit populaire"
                 android:textColor="@color/PrimaryTextColor"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins_medium"

@@ -6,11 +6,10 @@ public class Cart {
     private String Quantity;
     private String Modifications;
 
-    public Cart(String ID, Product product, String quantity, String modifications) {
+    public Cart(String ID, Product product, String quantity) {
         this.ID = ID;
         this.product = product;
         Quantity = quantity;
-        Modifications = modifications;
     }
 
     public Cart() {
