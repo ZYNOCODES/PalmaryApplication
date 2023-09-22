@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.OrderConfirmedFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center|top">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/illustrationorderconfirmed"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Votre commande est confirmée !"
+            android:textSize="20sp"
+            android:textColor="@color/SecondTextColor"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="40dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nous livrerons votre commande immédiatement,\nassurez-vous que votre commande\nsoit déposée à la porte"
+            android:textColor="@color/Gray"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_regular"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vérifier la commande"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</FrameLayout>

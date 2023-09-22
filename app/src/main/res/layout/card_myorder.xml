@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center|start">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/IMGOutPut"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                android:src="@drawable/cv"
+                android:layout_gravity="center|start"
+                android:scaleType="centerCrop"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_margin="5dp">
+            <TextView
+                android:id="@+id/TitleOutPut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fruit salad mix"
+                android:textSize="16sp"
+                android:textColor="@color/SecondTextColor"
+                android:fontFamily="@font/poppins_medium" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center|start"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/PriceOutPut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="650"
+                    android:textSize="14sp"
+                    android:textColor="@color/PrimaryColor"
+                    android:fontFamily="@font/poppins_regular" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DZ"
+                    android:textSize="12sp"
+                    android:textColor="@color/PrimaryColor"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center|start"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantité :"
+                    android:textSize="12sp"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/poppins_regular" />
+                <TextView
+                    android:id="@+id/QuantityOutPut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="03"
+                    android:textSize="12sp"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center|start"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Modifications :"
+                    android:textSize="12sp"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/poppins_regular" />
+                <TextView
+                    android:id="@+id/ModificationOutPut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sans salade"
+                    android:textSize="10sp"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/DeleteBTN"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/bucket_24px"
+            android:layout_gravity="top"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

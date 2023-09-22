@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "639328055417",
+    "project_id": "palmary-921bc",
+    "storage_bucket": "palmary-921bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639328055417:android:cf3d9190e914733560a4a8",
+        "android_client_info": {
+          "package_name": "com.example.palmaryapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIptPBiN-AGbfq739gQS6FMN5O6UOEFpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

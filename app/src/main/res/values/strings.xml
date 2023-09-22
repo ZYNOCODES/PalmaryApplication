@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Palmary</string>
+    <string name="DBURL">https://fratello-95cc9-default-rtdb.europe-west1.firebasedatabase.app/</string>
+    <string name="default_web_client_id">639328055417-3vprc8sa504cem0sbsdcv88b68c36s64.apps.googleusercontent.com</string>
+</resources>
