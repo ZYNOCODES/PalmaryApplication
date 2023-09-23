@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.palmaryapplication.Adapters.AnnonceAdapter;
 import com.example.palmaryapplication.Adapters.PostType1Adapter;
 import com.example.palmaryapplication.Adapters.PostType2Adapter;
+import com.example.palmaryapplication.Class.RecommendationService;
 import com.example.palmaryapplication.Interfaces.IconColorChangeListener;
 import com.example.palmaryapplication.Models.Product;
 import com.example.palmaryapplication.Models.User;
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment {
     private LinearLayout LocationContainer;
     private TextView MaxonTitle,MomentTitle,KoolTitle,RegaloTitle,LocationAdress;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private int transaction_no;
     private  final  static int REQUEST_CODE=100;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,7 +84,7 @@ public class HomeFragment extends Fragment {
 
         //fetch data
         fetchDataFromDB();
-
+        fetchRecommandedData();
         ProfileIMG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -353,6 +355,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 if (user != null) {
+
                     if (user.getPhone() != null && user.getFullName() != null){
                         if (user.getIMG() != null){
                             Picasso.get().load(user.getIMG()).into(ProfileIMG);
@@ -400,5 +403,19 @@ public class HomeFragment extends Fragment {
     private void askPermission() {
         ActivityCompat.requestPermissions(getActivity(), new String[]
                 {Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
+    }
+    private void fetchRecommandedData(){
+        RecommendationService.getRecommendations(transaction_no, new RecommendationService.RecommendationCallback() {
+            @Override
+            public void onSuccess(String response) {
+                // here is the output of my model
+            }
+
+            @Override
+            public void onError(String error) {
+                // Handle error
+                Log.e("RecommendationError", error);
+            }
+        });
     }
 }
