@@ -93,7 +93,7 @@ public class LogInFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    if (my_email.equals("FratelloFood@admin.com") || my_email.equals("fratellofood@admin.com")){
+                    if (my_email.equals("Palmary@admin.com") || my_email.equals("palmary@admin.com")){
                         Intent i = new Intent(getActivity(), AdminMainActivity.class);
                         startActivity(i);
                         getActivity().finish();

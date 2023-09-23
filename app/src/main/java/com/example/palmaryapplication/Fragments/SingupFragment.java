@@ -120,7 +120,7 @@ public class SingupFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    if (user.getEmail().equals("FratelloFood@admin.com") || user.getEmail().equals("fratellofood@admin.com")){
+                    if (user.getEmail().equals("Palmary@admin.com") || user.getEmail().equals("palmary@admin.com")){
                         Intent i = new Intent(getActivity(), AdminMainActivity.class);
                         startActivity(i);
                         getActivity().finish();

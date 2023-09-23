@@ -409,6 +409,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(String response) {
                 // here is the output of my model
+
             }
 
             @Override
