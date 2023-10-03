@@ -299,6 +299,30 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/line3"/>
             <TextView
+                android:id="@+id/line5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommanded"
+                android:textColor="@color/PrimaryTextColor"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="textStart"
+                android:gravity="center|start"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ProductRecyclerView"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecommandedProductRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line5"
+                />
+            <TextView
                 android:id="@+id/line4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -311,7 +335,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ProductRecyclerView"/>
+                app:layout_constraintTop_toBottomOf="@id/RecommandedProductRecyclerView"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/AllProductRecyclerView"
                 android:layout_width="match_parent"

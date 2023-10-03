@@ -9,7 +9,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RecommendationService {
-    private static final String FLASK_SERVER_URL = "http://192.168.8.102:5000/get_recommendations";
+    private static final String FLASK_SERVER_URL = "https://1ae6-41-109-207-115.ngrok-free.app/get_recommendations";
     public static void getRecommendations(int transactionNo, RecommendationCallback callback) {
         OkHttpClient client = new OkHttpClient();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");

@@ -45,6 +45,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +56,7 @@ import java.util.Locale;
 
 public class HomeFragment extends Fragment {
     private View view;
-    private RecyclerView AnnonceRecyclerView, ProductRecyclerView, AllProductRecyclerView;
+    private RecyclerView AnnonceRecyclerView, ProductRecyclerView, AllProductRecyclerView, RecommandedProductRecyclerView;
     private PostType1Adapter postType1Adapter;
     private PostType2Adapter postType2Adapter;
     private AnnonceAdapter annonceAdapter;
@@ -79,6 +83,8 @@ public class HomeFragment extends Fragment {
         AnnonceRecyclerView.setLayoutManager(Annoncemanager);
         LinearLayoutManager PostType1Manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         ProductRecyclerView.setLayoutManager(PostType1Manager);
+        LinearLayoutManager PostType1ManagerV2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        RecommandedProductRecyclerView.setLayoutManager(PostType1ManagerV2);
         LinearLayoutManager PostType2Manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         AllProductRecyclerView.setLayoutManager(PostType2Manager);
 
@@ -127,6 +133,7 @@ public class HomeFragment extends Fragment {
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(getActivity());
         AnnonceRecyclerView = view.findViewById(R.id.AnnonceRecyclerView);
         ProductRecyclerView = view.findViewById(R.id.ProductRecyclerView);
+        RecommandedProductRecyclerView = view.findViewById(R.id.RecommandedProductRecyclerView);
         AllProductRecyclerView = view.findViewById(R.id.AllProductRecyclerView);
         MaxonBTN = view.findViewById(R.id.MaxonBTN);
         MomentBTN = view.findViewById(R.id.MomentBTN);
@@ -342,6 +349,7 @@ public class HomeFragment extends Fragment {
                 }
                 postType2Adapter = new PostType2Adapter(getActivity(), products);
                 AllProductRecyclerView.setAdapter(postType2Adapter);
+
             }
 
             @Override
@@ -405,18 +413,65 @@ public class HomeFragment extends Fragment {
                 {Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
     }
     private void fetchRecommandedData(){
-        RecommendationService.getRecommendations(transaction_no, new RecommendationService.RecommendationCallback() {
+        Refuser.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onSuccess(String response) {
-                // here is the output of my model
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                if (user != null) {
+                    if (user.getID() > 0){
+                        transaction_no = user.getID();
+                        RecommendationService.getRecommendations(transaction_no, new RecommendationService.RecommendationCallback() {
+                            @Override
+                            public void onSuccess(String response) {
+                                ArrayList<Product> recommendedProducts = new ArrayList<>();
+                                RefProduct.addValueEventListener(new ValueEventListener() {
+                                     @Override
+                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                         recommendedProducts.clear();
+                                         for (DataSnapshot oneSnapshot : snapshot.getChildren()) {
+                                             Product product = oneSnapshot.getValue(Product.class);
+                                             JSONObject responseObject = null;
+                                             try {
+                                                 responseObject = new JSONObject(response);
+                                                 JSONArray recommendedProductNames = responseObject.getJSONArray("recommendations");
+                                                 for (int i = 0; i < recommendedProductNames.length(); i++) {
+                                                     String recommendedProductName = recommendedProductNames.getString(i);
+                                                     if (product != null && (product.getName().equals(recommendedProductName))) {
+                                                         // If the condition is true, add the product to the filtered list
+                                                         recommendedProducts.add(product);
+                                                     }
+                                                 }
+                                             } catch (JSONException e) {
+                                                 throw new RuntimeException(e);
+                                             }
+                                         }
+                                         postType1Adapter = new PostType1Adapter(getActivity(), recommendedProducts);
+                                         RecommandedProductRecyclerView.setAdapter(postType1Adapter);
+                                     }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        Log.e("DatabaseError", "Operation canceled", error.toException());
+                                        Toast.makeText(getActivity(), "Database operation canceled: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
 
+                            @Override
+                            public void onError(String error) {
+                                // Handle error
+                                Log.e("RecommendationError", error);
+                            }
+                        });
+                    }
+                }
             }
 
             @Override
-            public void onError(String error) {
-                // Handle error
-                Log.e("RecommendationError", error);
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("DatabaseError", "Operation canceled", error.toException());
+                Toast.makeText(getActivity(), "Database operation canceled: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }
